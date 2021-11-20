@@ -21,11 +21,13 @@ export const StateContextProvider = ({ children }) => {
         'x-rapidapi-key': process.env.REACT_APP_API_KEY,
       },
     })
+      // eslint-disable-next-line no-shadow
+      .then((res) => res.json())
+      .then((data) => {
+        setResults(data.results);
+        setLoading(false);
+      })
       .catch((err) => res.status(501).send('User- query promise was rejected. Handle according to specific case.'));
-    const data = await res.json();
-
-    setResults(data);
-    setLoading(false);
   };
 
   return (
