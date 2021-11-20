@@ -19,7 +19,8 @@ export const StateContextProvider = ({ children }) => {
         'x-rapidapi-host': 'google-search3.p.rapidapi.com',
         'x-rapidapi-key': process.env.REACT_APP_API_KEY,
       },
-    });
+    })
+      .catch(() => res.status(501).send('User- query promise was rejected. Handle according to specific case.'));
 
     const data = await res.json();
 
