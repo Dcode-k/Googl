@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
@@ -20,8 +21,7 @@ export const StateContextProvider = ({ children }) => {
         'x-rapidapi-key': process.env.REACT_APP_API_KEY,
       },
     })
-      .catch(() => res.status(501).send('User- query promise was rejected. Handle according to specific case.'));
-
+      .catch((err) => res.status(501).send('User- query promise was rejected. Handle according to specific case.'));
     const data = await res.json();
 
     setResults(data);
