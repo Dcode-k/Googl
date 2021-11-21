@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-trailing-spaces */
@@ -31,7 +32,7 @@ export const StateContextProvider = ({ children }) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
